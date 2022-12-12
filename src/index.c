@@ -31,8 +31,6 @@ int main()
 
     // Initialize table on memory
     InitializeTable();
-    // Draw the first frame of the table
-    InitializeDraw();
 
     // Initialize snake on memory
     InitializeSnake();
@@ -55,6 +53,12 @@ int main()
         fruit.x = rand() % SIZE;
         fruit.y = rand() % SIZE;
     } while (IsFruitInSnake(fruit));
+
+	// Draw the fruit on the table
+	DrawAt(fruit.x, fruit.y, FRUITCH);
+
+	// Draw the first frame of the table
+    InitializeDraw();
 
     // This variable will help us to set the speed of the snake
     int t = 0;
@@ -95,7 +99,7 @@ int main()
         }
 
         // This will modify the frame rate of the game
-        if (t >= 100 - (snake_size * 3))
+        if (t >= 100 - (snake_size * 1.2))
         {
             // Get last position of the snake, so later we can replace it for the map background on the table
             struct position back = MoveSnake();

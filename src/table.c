@@ -15,12 +15,14 @@ void InitializeDraw()
     move(0, 0);
     for (int i = 0; i < AREA; i++)
     {
-        printw("%c", BACKGROUND);
+        printw("%c", table[i]);
         if ((i + 1) % SIZE == 0)
         {
             printw("\n");
         }
     }
+	printw("Score: 0\n");
+	refresh();
 }
 
 // Change some character at the specified position
